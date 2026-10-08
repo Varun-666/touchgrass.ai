@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#173b2b" />
+  <meta name="description" content="TouchGrass AI — local AI outdoor missions." />
+  <link rel="manifest" href="/static/manifest.json" />
+  <link rel="stylesheet" href="/static/styles.css" />
+  <title>TouchGrass AI</title>
+</head>
+<body>
+  <div class="grain"></div>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="/">🌿 <span>TouchGrass</span></a>
+      <div class="status" id="status"><span class="dot"></span> local AI</div>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">OPEN-SOURCE AI · OUTDOORS</p>
+      <h1>Use AI for<br /><em>10 seconds.</em><br />Then go outside.</h1>
+      <p class="lede">Tell TouchGrass what kind of time you have. It creates one small mission for the real world — then your phone can go back in your pocket.</p>
+    </section>
+
+    <section class="builder" aria-label="Mission builder">
+      <div class="section-label">01 · PICK A MODE</div>
+      <div class="mode-grid">
+        <button class="mode active" data-mode="nature"><span>🌿</span><b>Nature</b><small>Notice more</small></button>
+        <button class="mode" data-mode="explore"><span>🚶</span><b>Explore</b><small>Go somewhere new</small></button>
+        <button class="mode" data-mode="garden"><span>🌱</span><b>Garden</b><small>Care & observe</small></button>
+      </div>
+
+      <div class="controls">
+        <div class="field">
+          <label for="duration">TIME OUTSIDE</label>
+          <div class="range-row"><input id="duration" type="range" min="10" max="120" step="5" value="30" /><strong><span id="durationValue">30</span> min</strong></div>
+        </div>
+        <div class="field">
+          <label>ENERGY</label>
+          <div class="segmented" id="energy">
+            <button class="selected" data-value="low">Low</button><button data-value="medium">Medium</button><button data-value="high">High</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>SETTING</label>
+          <select id="setting">
+            <option value="park">Park</option>
+            <option value="garden">Garden</option>
+            <option value="neighborhood">Neighborhood</option>
+            <option value="trail">Trail</option>
+            <option value="balcony">Balcony</option>
+            <option value="backyard">Backyard</option>
+            <option value="anywhere">Anywhere</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label for="interests">THINGS YOU LIKE <span>optional</span></label>
+          <input id="interests" placeholder="birds, plants, photography, quiet walks" maxlength="180" />
+        </div>
+        <div class="field full">
+          <label for="goal">WHAT DO YOU WANT FROM THIS?</label>
+          <textarea id="goal" rows="2" maxlength="300">I want something relaxing and easy.</textarea>
+        </div>
+      </div>
+
+      <button class="generate" id="generate"><span>Generate my mission</span><span>→</span></button>
+      <p class="microcopy">No account. No paid API. Your preferences stay on this device.</p>
+    </section>
+
+    <section class="result hidden" id="result">
+      <div class="result-top"><span class="pill">YOUR MISSION</span><span id="resultModel">LOCAL AI</span></div>
+      <h2 id="resultTitle"></h2>
+      <p class="reason" id="resultReason"></p>
+      <div class="mission-meta"><span>⏱ <b id="resultDuration"></b> minutes</span><span>📵 phone away</span></div>
+      <div class="mission-grid">
+        <div><h3>Do this</h3><ol id="steps"></ol></div>
+        <div><h3>Look for</h3><ul id="lookFor"></ul></div>
+      </div>
+      <div class="phone-rule"><b>📵 Phone rule</b><span id="phoneRule"></span></div>
+      <div class="safety"><b>Safety</b><span id="safety"></span></div>
+      <div class="closing" id="closing"></div>
+      <button class="again" id="again">Make another mission ↗</button>
+    </section>
+
+    <footer>
+      <div><strong>TouchGrass AI</strong> · built for Hacktoberfest 2026</div>
+      <div>Open-weight AI · Local inference · MIT app code</div>
+    </footer>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
